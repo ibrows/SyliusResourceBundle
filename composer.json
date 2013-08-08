@@ -23,7 +23,7 @@
         "friendsofsymfony/rest-bundle":    "*",
         "white-october/pagerfanta-bundle": "dev-master",
         "pagerfanta/pagerfanta":           "dev-master",
-        "jms/serializer":                   "*"
+        "jms/serializer-bundle":           "*"
     },
     "require-dev": {
         "twig/twig":            "~1.11",
