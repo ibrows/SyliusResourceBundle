@@ -21,8 +21,8 @@
 
         "symfony/framework-bundle":        "*",
         "friendsofsymfony/rest-bundle":    "*",
-        "white-october/pagerfanta-bundle": "dev-master",
-        "pagerfanta/pagerfanta":           "dev-master",
+        "white-october/pagerfanta-bundle": "*",
+        "pagerfanta/pagerfanta":           "*",
         "jms/serializer-bundle":           "*"
     },
     "require-dev": {
