@@ -20,9 +20,9 @@
         "php": ">=5.3.3",
 
         "symfony/framework-bundle":         "~2.1",
-        "friendsofsymfony/rest-bundle":     "0.11.*@dev",
-        "white-october/pagerfanta-bundle":  "dev-master",
-        "pagerfanta/pagerfanta":            "dev-master",
+        "friendsofsymfony/rest-bundle":     "*",
+        "white-october/pagerfanta-bundle":  "*",
+        "pagerfanta/pagerfanta":            "*",
         "jms/serializer":                   "*"
     },
     "require-dev": {
