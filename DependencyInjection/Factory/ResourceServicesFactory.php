@@ -49,8 +49,7 @@ class ResourceServicesFactory
 
             $classMetadata = new Definition('Doctrine\\ORM\\Mapping\\ClassMetadata');
             $classMetadata
-                ->setFactoryService('doctrine.orm.entity_manager')
-                ->setFactoryMethod('getClassMetadata')
+                ->setFactory([new Reference('doctrine.orm.entity_manager'), 'getClassMetadata'])
                 ->setArguments(array($classes['model']))
                 ->setPublic(false)
             ;
@@ -78,16 +77,14 @@ class ResourceServicesFactory
 
             $classMetadata = new Definition('Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata');
             $classMetadata
-                ->setFactoryService('doctrine.odm.mongodb.document_manager')
-                ->setFactoryMethod('getClassMetadata')
+                ->setFactory([new Reference('doctrine.odm.mongodb.document_manager'), 'getClassMetadata'])
                 ->setArguments(array($classes['model']))
                 ->setPublic(false)
             ;
 
             $unitOfWork = new Definition('Doctrine\\ODM\\MongoDB\\UnitOfWork');
             $unitOfWork
-                ->setFactoryService('doctrine.odm.mongodb.document_manager')
-                ->setFactoryMethod('getUnitOfWork')
+                ->setFactory([new Reference('doctrine.odm.mongodb.document_manager'), 'getUnitOfWork'])
                 ->setPublic(false)
             ;
 
