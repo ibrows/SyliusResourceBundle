@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.3.3",
 
-        "symfony/framework-bundle":         "~2.1",
+        "symfony/framework-bundle":         "~2.1|^3.0",
         "friendsofsymfony/rest-bundle":     "*",
         "white-october/pagerfanta-bundle":  "*",
         "pagerfanta/pagerfanta":            "*",
