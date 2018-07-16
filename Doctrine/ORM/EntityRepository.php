@@ -16,6 +16,7 @@ use Sylius\Bundle\ResourceBundle\Model\RepositoryInterface;
 use Doctrine\ORM\QueryBuilder;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
+use Doctrine\DBAL\LockMode;
 
 /**
  * Doctrine ORM driver entity repository.
