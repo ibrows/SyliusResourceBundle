@@ -31,14 +31,25 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
         return new $className;
     }
 
-    public function find($id)
+    /**
+     * @param mixed $id
+     * @param int $lockMode
+     * @param null $lockVersion
+     *
+     * @return null
+     */
+    public function find($id, $lockMode = LockMode::NONE, $lockVersion = null)
     {
-        return $this
-            ->getQueryBuilder()
-            ->andWhere($this->getAlias().'.id = '.intval($id))
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $result = null;
+        try {
+            $result = $this->_em->find($this->_entityName, $id, $lockMode, $lockVersion);
+        } catch (ORMInvalidArgumentException $exception) {
+            //do nothing
+        } catch (ORMException $exception) {
+            //do nothing
+        }
+
+        return $result;
     }
 
     public function findAll()
