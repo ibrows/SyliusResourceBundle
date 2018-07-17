@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernel;
 use Symfony\Component\Routing\RouterInterface;
 use Twig_Extension;
-use Twig_SimpleFilter;
+use Twig_SimpleFunction;
 
 /**
  * Sylius resource twig helper.
@@ -46,7 +46,7 @@ class SyliusResourceExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            'sylius_resource_sort' => new Twig_SimpleFilter($this, 'renderSortingLink', array('is_safe' => array('html'))),
+            'sylius_resource_sort' => new Twig_SimpleFunction($this, 'renderSortingLink', array('is_safe' => array('html'))),
         );
     }
 
