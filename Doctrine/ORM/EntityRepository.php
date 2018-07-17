@@ -70,7 +70,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
      *
      * @return object|null The entity instance or NULL if the entity can not be found.
      */
-    public function findOneBy(array $criteria, array $orderBy = [])
+    public function findOneBy(array $criteria, array $orderBy = null)
     {
         $persister = $this->em->getUnitOfWork()->getEntityPersister($this->entityName);
         return $persister->load($criteria, null, null, [], null, 1, $orderBy);
