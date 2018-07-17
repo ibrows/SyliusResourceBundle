@@ -62,16 +62,18 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
         ;
     }
 
-    public function findOneBy(array $criteria)
+    /**
+     * Finds a single entity by a set of criteria.
+     *
+     * @param mixed[] $criteria
+     * @param mixed[] $orderBy
+     *
+     * @return object|null The entity instance or NULL if the entity can not be found.
+     */
+    public function findOneBy(array $criteria, array $orderBy = [])
     {
-        $queryBuilder = $this->getQueryBuilder();
-
-        $this->applyCriteria($queryBuilder, $criteria);
-
-        return $queryBuilder
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $persister = $this->em->getUnitOfWork()->getEntityPersister($this->entityName);
+        return $persister->load($criteria, null, null, [], null, 1, $orderBy);
     }
 
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
