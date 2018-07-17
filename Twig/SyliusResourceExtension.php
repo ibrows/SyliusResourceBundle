@@ -46,7 +46,7 @@ class SyliusResourceExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            'sylius_resource_sort' => new Twig_SimpleFunction($this, 'renderSortingLink', array('is_safe' => array('html'))),
+            'sylius_resource_sort' => new Twig_SimpleFunction('renderSortingLink', array('is_safe' => array('html'))),
         );
     }
 
